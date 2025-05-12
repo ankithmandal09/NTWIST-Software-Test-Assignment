@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NTWIST Assignment - Sortable List</title>
+    <link rel="stylesheet" href="assets/styles/sort.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="sidebar">
+        <h2>NTWIST Assignment</h2>
+        <ul>
+          <li><a href="index.html">📝 Form Page</a></li>
+          <li><a href="sort.html" class="active">📋 Sort List</a></li>
+          <li><a href="faq.html">❓ FAQ</a></li>
+        </ul>
+      </nav>
+
+      <main class="content">
+        <h1>Submitted Entries</h1>
+
+        <div class="control-panel">
+          <select id="sortSelect" class="sort-select">
+            <option value="default">Default (Latest First)</option>
+            <option value="nameAZ">Name (A-Z)</option>
+            <option value="nameZA">Name (Z-A)</option>
+          </select>
+        </div>
+
+        <div class="entries-container">
+          <div class="entries-header">
+            <div>Name</div>
+            <div>Rating</div>
+            <div>Message</div>
+            <div>Actions</div>
+          </div>
+          <div id="entriesList" class="entries-list"></div>
+        </div>
+      </main>
+    </div>
+
+    <script src="assets/sort.js"></script>
+  </body>
+</html>

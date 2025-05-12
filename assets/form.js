@@ -41,10 +41,9 @@ function updateTimer() {
 }
 
 // Form submission handling
-contactForm.addEventListener("submit", (e) => {
+contactForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  // Get form data
   const formData = {
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
@@ -52,7 +51,15 @@ contactForm.addEventListener("submit", (e) => {
     rating:
       document.querySelector('input[name="rating"]:checked')?.value ||
       "Not rated",
+    timestamp: new Date().toISOString(),
   };
+
+  // Get existing entries or initialize new array
+  const existingEntries = JSON.parse(
+    localStorage.getItem("formEntries") || "[]"
+  );
+  existingEntries.push(formData);
+  localStorage.setItem("formEntries", JSON.stringify(existingEntries));
 
   // Clear timer
   clearInterval(timerInterval);
@@ -65,7 +72,8 @@ contactForm.addEventListener("submit", (e) => {
   console.log("Time spent on form:", timerDisplay.textContent);
 
   // Clear form
-  contactForm.reset();
+  this.reset();
+  alert("Form submitted successfully!");
 
   // Hide confirmation message after 5 seconds
   setTimeout(() => {

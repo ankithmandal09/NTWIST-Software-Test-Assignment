@@ -1,0 +1,79 @@
+/* FAQ Accordion Styles */
+.faq-container {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+summary {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+summary:hover {
+    background-color: #f9f9f9;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: '+';
+    position: absolute;
+    right: 1.5rem;
+    transition: transform 0.3s;
+}
+
+details[open] summary {
+    background-color: #f5f9ff;
+}
+
+details[open] summary::after {
+    content: '-';
+}
+
+.faq-content {
+    padding: 0 1.5rem 1rem;
+    border-top: 1px solid #f0f0f0;
+    background-color: #fafbfc;
+}
+
+.faq-content p {
+    margin: 1rem 0;
+}
+
+/* FAQ specific responsive styles */
+@media (max-width: 768px) {
+    .faq-container {
+        border-radius: 0;
+        margin: 1rem -1rem;
+        width: calc(100% + 2rem);
+    }
+    
+    summary {
+        padding: 0.8rem 1rem;
+    }
+    
+    summary::after {
+        right: 1rem;
+    }
+    
+    .faq-content {
+        padding: 0 1rem 0.8rem;
+    }
+}
