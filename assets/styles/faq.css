@@ -13,82 +13,24 @@ body {
 
 /* Container Layout */
 .container {
-    display: flex;
+    padding-top: 80px;
     min-height: 100vh;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-/* Sidebar */
-.sidebar {
-    background: linear-gradient(135deg, #2c3e50, #34495e);
-    width: 250px;
-    min-height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding: 30px 20px;
-    border-radius: 0 10px 10px 0;
-    z-index: 100;
-}
-
-.sidebar h2 {
-    margin-bottom: 30px;
-    font-size: 1.6rem;
-    text-align: center;
-    color: #ffffff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 10px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar li {
-    margin: 20px 0;
-}
-
-.sidebar a {
-    display: block;
-    color: #ecf0f1;
-    text-decoration: none;
-    padding: 12px 15px;
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.2s ease;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.sidebar a:hover {
-    background-color: slateblue;
-    color: white;
-    transform: translateX(5px);
-}
-
-.sidebar a.active {
-    background-color: SlateBlue;
-    font-weight: bold;
-    color: white;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
 }
 
 /* Content Area */
 .content {
-    flex: 1;
-    margin-left: 250px;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 2rem;
-    background-color: #f9f9f9;
 }
 
 /* FAQ Styles */
 .faq-container {
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
 
@@ -137,31 +79,115 @@ details[open] summary::after {
     color: #666;
 }
 
-/* Responsive Styles */
-@media (max-width: 1024px) {
-    .content {
-        padding: 1.5rem;
-    }
+/* navbar */
+.navbar {
+    background: linear-gradient(135deg, #1a2980, #26d0ce);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-    .faq-container {
-        max-width: 90%;
-    }
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-links a.active {
+    background: white;
+    color: #1a2980;
 }
 
 @media (max-width: 768px) {
-    .container {
+    .nav-content {
         flex-direction: column;
+        gap: 1rem;
     }
 
-    .sidebar {
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .navbar {
+        padding: 15px;
+        text-align: center;
+        background: linear-gradient(135deg, #1a2980, #26d0ce);
         position: relative;
-        width: 100%;
-        min-height: auto;
+    }
+
+    .navbar h2 {
+        margin-bottom: 15px;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .nav-content {
+        display: block;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .nav-links a {
+        padding: 8px 16px;
+        color: white;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links a.active {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .container {
+        flex-direction: column;
+        padding-top: 0;
     }
 
     .content {
-        margin-left: 0;
+        margin: 0;
         padding: 1rem;
+    }
+
+    .faq-container {
+        margin: 10px 0;
+        border-radius: 8px;
     }
 
     summary {
@@ -176,6 +202,33 @@ details[open] summary::after {
 }
 
 @media (max-width: 480px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 8px;
+        padding: 0.2rem;
+    }
+
+    .nav-links a {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    .nav-brand {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
     .content {
         padding: 0.8rem;
     }

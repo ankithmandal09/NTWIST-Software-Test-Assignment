@@ -1,69 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NTWIST Assignment - FAQ Accordion</title>
-    <link rel="stylesheet" href="assets/styles/faq.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/styles/faq.css" />
+  </head>
+  <body>
     <div class="container">
-        <nav class="sidebar">
-            <h2>NTWIST Assignment</h2>
-            <ul>
-                <li><a href="index.html">📝 Form Page</a></li>
-                <li><a href="sort.html">📋 Sort List</a></li>
-                <li><a href="faq.html" class="active">❓ FAQ</a></li>
-            </ul>
-        </nav>
-        
-        <main class="content">
-            <h1>Frequently Asked Questions</h1>
-            
-            <div class="faq-container">
-                <details class="faq-item">
-                    <summary>What is NTWIST?</summary>
-                    <div class="faq-content">
-                        <p>NTWIST is a technology company that specializes in delivering digital transformation solutions for industrial operations. The company focuses on providing advanced analytics, operational intelligence, and integrated AI-powered solutions for sectors such as mining, manufacturing, and energy. Their tools help businesses optimize production, improve safety, and reduce operational costs.</p>
-                    </div>
-                </details>
+      <nav class="navbar">
+        <div class="nav-content">
+          <a href="#" class="nav-brand">NTWIST Assignment</a>
+          <ul class="nav-links">
+            <li><a href="index.html">📝 Form</a></li>
+            <li><a href="sort.html">📋 Sort List</a></li>
+            <li><a href="faq.html" class="active">❓ FAQ</a></li>
+          </ul>
+        </div>
+      </nav>
 
-                <details class="faq-item">
-                    <summary>What technologies were used to build this website?</summary>
-                    <div class="faq-content">
-                        <p>This website was built using only HTML, CSS, and vanilla JavaScript as required by the assignment. No external libraries or frameworks were used.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>How is the form validation implemented?</summary>
-                    <div class="faq-content">
-                        <p>The form validation uses a combination of HTML5 validation attributes (required, pattern, type) and custom JavaScript validation for enhanced user experience.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>How does the sortable list work?</summary>
-                    <div class="faq-content">
-                        <p>The sortable list is implemented using JavaScript DOM manipulation. When the sort button is clicked, JavaScript sorts the list items alphabetically without reloading the page.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>Is this FAQ accordion using JavaScript?</summary>
-                    <div class="faq-content">
-                        <p>No! This FAQ accordion is implemented using only HTML and CSS. It uses the HTML5 &lt;details&gt; and &lt;summary&gt; elements which provide native expand/collapse functionality without any JavaScript.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>How is the star rating implemented?</summary>
-                    <div class="faq-content">
-                        <p>The star rating is implemented using radio buttons with custom CSS styling. When a user clicks on a star, the corresponding radio button is selected, and styling is applied to show the selected rating.</p>
-                    </div>
-                </details>
+      <main class="content">
+        <h1>Frequently Asked Questions</h1>
+
+        <div class="faq-container">
+          <details class="faq-item">
+            <summary>What is NTWIST?</summary>
+            <div class="faq-content">
+              <p>
+                NTWIST is a technology company that specializes in delivering
+                digital transformation solutions for industrial operations. The
+                company focuses on providing advanced analytics, operational
+                intelligence, and integrated AI-powered solutions for sectors
+                such as mining, manufacturing, and energy. Their tools help
+                businesses optimize production, improve safety, and reduce
+                operational costs.
+              </p>
             </div>
-        </main>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              What technologies were used to build this website?
+            </summary>
+            <div class="faq-content">
+              <p>
+                This website was built using only HTML, CSS, and vanilla
+                JavaScript as required by the assignment. No external libraries
+                or frameworks were used.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How is the form validation implemented?</summary>
+            <div class="faq-content">
+              <p>
+                The form validation uses a combination of HTML5 validation
+                attributes (required, pattern, type) and custom JavaScript
+                validation for enhanced user experience.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How does the sortable list work?</summary>
+            <div class="faq-content">
+              <p>
+                The sortable list is implemented using JavaScript DOM
+                manipulation. When the sort button is clicked, JavaScript sorts
+                the list items alphabetically without reloading the page.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is this FAQ accordion using JavaScript?</summary>
+            <div class="faq-content">
+              <p>
+                No! This FAQ accordion is implemented using only HTML and CSS.
+                It uses the HTML5 &lt;details&gt; and &lt;summary&gt; elements
+                which provide native expand/collapse functionality without any
+                JavaScript.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How is the star rating implemented?</summary>
+            <div class="faq-content">
+              <p>
+                The star rating is implemented using radio buttons with custom
+                CSS styling. When a user clicks on a star, the corresponding
+                radio button is selected, and styling is applied to show the
+                selected rating.
+              </p>
+            </div>
+          </details>
+        </div>
+      </main>
     </div>
-</body>
+  </body>
 </html>

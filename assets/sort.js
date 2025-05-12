@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
       timeSpent: 150,
       formStartTime: "2024-01-15 14:20:00",
       timestamp: new Date("2024-01-15T14:22:30").toISOString(),
-    }
+    },
   ];
 
   // Get entries from localStorage or use dummy data
@@ -54,19 +54,24 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function displayEntries(entries) {
+    const isMobile = window.innerWidth <= 768;
+
     entriesList.innerHTML = entries
       .map(
         (entry) => `
-            <div class="entry-item">
-                <div class="entry-name" data-label="Name">
-                    ${entry.name}
-                </div>
-                <div class="entry-email" data-label="Email">
-                    ${entry.email}
-                </div>
-                <div class="entry-rating" data-label="Rating">
-                    ${getStarRating(entry.rating)}
-                </div>
+        <div class="entry-item">
+            <div class="entry-name" data-label="Name">
+                ${entry.name}
+            </div>
+            <div class="entry-email" data-label="Email">
+                ${entry.email}
+            </div>
+            <div class="entry-rating" data-label="Rating">
+                ${getStarRating(entry.rating)}
+            </div>
+            ${
+              !isMobile
+                ? `
                 <div class="entry-message" data-label="Message">
                     ${entry.message}
                 </div>
@@ -85,11 +90,19 @@ document.addEventListener("DOMContentLoaded", function () {
                         🗑️
                     </button>
                 </div>
-            </div>
-        `
+            `
+                : ""
+            }
+        </div>
+    `
       )
       .join("");
   }
+
+  // Add resize listener to handle screen size changes
+  window.addEventListener("resize", () => {
+    displayEntries(entries);
+  });
 
   function sortEntries(type) {
     switch (type) {
