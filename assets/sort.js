@@ -9,10 +9,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function formatTime(seconds) {
     if (!seconds) return "N/A";
-    if (seconds < 60) return `${seconds}s`;
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${minutes}m ${remainingSeconds}s`;
+  }
+
+  function formatTimeSpent(seconds) {
+    if (!seconds) return "N/A";
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return minutes > 0
+      ? `${minutes}m ${remainingSeconds}s`
+      : `${remainingSeconds}s`;
   }
 
   function displayEntries(entries) {
@@ -20,21 +28,30 @@ document.addEventListener("DOMContentLoaded", function () {
       .map(
         (entry) => `
             <div class="entry-item">
-                <div class="entry-name" data-label="Name">${entry.name}</div>
-                <div class="entry-email" data-label="Email">${entry.email}</div>
-                <div class="entry-rating" data-label="Rating">${getStarRating(
-                  entry.rating
-                )}</div>
-                <div class="entry-message" data-label="Message">${
-                  entry.message
-                }</div>
-                <div class="entry-time" data-label="Time">${formatTime(
-                  entry.timeSpent
-                )}</div>
+                <div class="entry-name" data-label="Name">
+                    ${entry.name}
+                </div>
+                <div class="entry-email" data-label="Email">
+                    ${entry.email}
+                </div>
+                <div class="entry-rating" data-label="Rating">
+                    <div class="rating-stars">${"⭐".repeat(entry.rating)}</div>
+                </div>
+                <div class="entry-message" data-label="Message">
+                    ${entry.message}
+                </div>
+                <div class="entry-time" data-label="Time Info">
+                    <span class="time-spent">
+                        ${formatTimeSpent(entry.timeSpent)}
+                    </span>
+                    <span class="start-time">
+                        Started: ${entry.formStartTime || "N/A"}
+                    </span>
+                </div>
                 <div class="entry-actions" data-label="Actions">
-                    <button onclick="deleteEntry('${
+                    <button class="delete-btn" onclick="deleteEntry('${
                       entry.timestamp
-                    }')" class="delete-btn">
+                    }')">
                         🗑️
                     </button>
                 </div>

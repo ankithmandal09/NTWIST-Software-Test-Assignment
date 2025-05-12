@@ -161,7 +161,7 @@ body {
 
 .entries-header {
     display: grid;
-    grid-template-columns: 1.5fr 2fr 1fr 2fr 1fr 1fr;
+    grid-template-columns: 1.5fr 2fr 0.8fr 2fr 1fr 0.8fr;
     padding: 15px;
     background: #f8f9fa;
     font-weight: bold;
@@ -178,7 +178,7 @@ body {
 
 .entry-item {
     display: grid;
-    grid-template-columns: 1.5fr 2fr 1fr 2fr 1fr 1fr;
+    grid-template-columns: 1.5fr 2fr 0.8fr 2fr 1fr 0.8fr;
     padding: 15px;
     border-bottom: 1px solid #dee2e6;
     align-items: center;
@@ -197,7 +197,7 @@ body {
 .entry-actions {
     padding: 8px;
     overflow: hidden;
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis; */
 }
 
 .entry-message {
@@ -205,9 +205,25 @@ body {
 }
 
 .entry-time {
-    color: #666;
-    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
     text-align: center;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.time-spent {
+    color: #2c3e50;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #f0f0f0;
+}
+
+.start-time {
+    font-size: 0.85em;
+    color: #888;
 }
 
 .entry-email {
@@ -215,8 +231,7 @@ body {
     color: #666;
 }
 
-.entry-rating,
-.entry-actions {
+.entry-rating {
     text-align: center;
 }
 
@@ -224,6 +239,23 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
+}
+
+.rating-stars {
+    display: inline-block;
+}
+
+.delete-btn {
+    padding: 6px 12px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.delete-btn:hover {
+    background: #ff0000;
 }
 
 /* Responsive Design */
@@ -281,18 +313,19 @@ body {
     .entry-item {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
         background: white;
-        margin-bottom: 12px;
+        margin-bottom: 15px;
         border-radius: 8px;
-        border: 1px solid #dee2e6;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 15px;
     }
 
     .entry-item>div {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 8px;
+        padding: 8px 0;
         border-bottom: 1px solid #eee;
     }
 
@@ -303,8 +336,7 @@ body {
     .entry-item>div::before {
         content: attr(data-label);
         font-weight: 600;
-        color: #555;
-        width: 120px;
+        min-width: 100px;
     }
 
     .entry-message {
@@ -313,12 +345,27 @@ body {
     }
 
     .entry-time {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .entry-item>div.entry-time::before {
+        content: "Time Info";
+        font-weight: 600;
+    }
+
+    .entry-time {
         text-align: right;
     }
 
     .entry-actions {
-        justify-content: flex-end;
-        border-bottom: none;
+        border-bottom: none !important;
+        justify-content: flex-end !important;
+    }
+
+    .delete-btn {
+        width: auto;
     }
 }
 

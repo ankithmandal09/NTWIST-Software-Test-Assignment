@@ -1,5 +1,6 @@
 // Form timer functionality
-let startTime = null;
+let startTime = new Date();
+let formStarted = false;
 let timerInterval = null;
 const timerDisplay = document.getElementById("timer");
 const formElements = document.querySelectorAll(
@@ -11,8 +12,9 @@ const confirmationMessage = document.getElementById("confirmationMessage");
 // Start timer on first form field focus
 formElements.forEach((element) => {
   element.addEventListener("focus", () => {
-    if (!startTime) {
+    if (!formStarted) {
       startTime = new Date();
+      formStarted = true;
       startTimer();
     }
   });
@@ -25,7 +27,7 @@ function startTimer() {
 
 // Calculate and display the time spent on the form
 function updateTimer() {
-  if (!startTime) return;
+  if (!formStarted) return;
 
   const currentTime = new Date();
   const timeSpent = Math.floor((currentTime - startTime) / 1000); // Time in seconds
@@ -43,15 +45,18 @@ function updateTimer() {
 // Form submission handling
 contactForm.addEventListener("submit", function (e) {
   e.preventDefault();
-
-  const rating =
-    document.querySelector('input[name="rating"]:checked')?.value || "0";
+  const endTime = new Date();
+  const timeSpent = Math.floor((endTime - startTime) / 1000); // in seconds
+  const formStartTime = startTime.toLocaleString();
 
   const formData = {
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
     message: document.getElementById("message").value,
-    rating: parseInt(rating),
+    rating:
+      document.querySelector('input[name="rating"]:checked')?.value || "0",
+    timeSpent,
+    formStartTime,
     timestamp: new Date().toISOString(),
   };
 
@@ -81,7 +86,8 @@ contactForm.addEventListener("submit", function (e) {
     confirmationMessage.classList.add("hidden");
 
     // Reset timer
-    startTime = null;
+    formStarted = false;
+    startTime = new Date();
     timerDisplay.textContent = "0s";
   }, 5000);
 });
