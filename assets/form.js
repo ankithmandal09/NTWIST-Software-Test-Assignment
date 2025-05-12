@@ -44,13 +44,14 @@ function updateTimer() {
 contactForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
+  const rating =
+    document.querySelector('input[name="rating"]:checked')?.value || "0";
+
   const formData = {
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
     message: document.getElementById("message").value,
-    rating:
-      document.querySelector('input[name="rating"]:checked')?.value ||
-      "Not rated",
+    rating: parseInt(rating),
     timestamp: new Date().toISOString(),
   };
 
